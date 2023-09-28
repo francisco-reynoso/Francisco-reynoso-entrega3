@@ -1,11 +1,12 @@
-const carrito = document.getElementById("carrito-sin-notificacion");
+const carrito = [];
+const miCarrito = document.getElementById("carrito-sin-notificacion");
 
 
 const boton = document.getElementById("1");
 boton.addEventListener("click", comprar);
 function comprar() {
-    carrito.classList.remove("header-carrito");
-    carrito.classList.add("header-carrito-con-notificacion");
+    miCarrito.classList.remove("header-carrito");
+    miCarrito.classList.add("header-carrito-con-notificacion");
 
     const eleNotificacion = document.getElementsByClassName("sin-notificacion");
 
@@ -17,9 +18,9 @@ function comprar() {
 
 }
 
-carrito.addEventListener("click", () => {
-    carrito.classList.remove("header-carrito-con-notificacion");
-    carrito.classList.add("header-carrito");
+miCarrito.addEventListener("click", () => {
+    miCarrito.classList.remove("header-carrito-con-notificacion");
+    miCarrito.classList.add("header-carrito");
     const eleNotificacion = document.getElementsByClassName("con-notificacion");
 
     console.log(eleNotificacion)
@@ -30,5 +31,19 @@ carrito.addEventListener("click", () => {
     }
 });
 
+const botones = document.querySelectorAll(".boton");
 
+console.log(botones)
+botones.forEach((boton) => {
+    boton.addEventListener("click", () => {
+        comprar();
+        
+    });
+    
+});
 
+// function comprar(e) {
+//     const idProducto = e.target.id;
+// }
+
+// console.log(idProducto)
