@@ -1,5 +1,6 @@
 .encabezado{
-    background: url(../assets/imagenes/fondo.jpg);
+    background-image:linear-gradient(rgba(0,0,0,0.1), black), 
+    url(../assets/imagenes/fondo.jpg);
     background-size:cover;
     background-position:center;
     height: 30rem;
