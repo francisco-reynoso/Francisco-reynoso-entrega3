@@ -1,0 +1,182 @@
+main{
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+  
+}
+.todo{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.header-carrito{
+    margin-top:5rem ;
+    width: 25%;
+    height: 8rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        .carrito-negro{
+        height: 5rem;
+        width: 5rem;    
+    }
+    .sin-notificacion{
+        display: none;
+        
+        
+    }
+    .con-notificacion{
+        display: inline;
+        margin-bottom: 4.2rem;
+        margin-left: 3rem;
+        position: absolute;
+        height: 1rem;
+        width: 1rem;
+        background-color: red;
+        border-radius: 1rem;
+        transition: all 0.9s;
+    }
+}
+.header-carrito-con-notificacion{
+    @extend .header-carrito;
+    cursor: pointer;
+    transition: all 0.8s;
+}
+.header-carrito-con-notificacion:hover{
+    transform: scale(1.04);
+}
+// .todo-carrito{
+//     display: none;
+//     flex-direction: column;
+//     width: 30%;
+//     height: 30rem;
+//     background-color: bisque;
+//     margin: 5rem 0rem 0rem 0rem;
+//     border-radius: 1rem;
+//     align-items:center ;
+//     justify-content: flex-start;
+//     .header-carrito{
+//         border-bottom: 1px solid rgb(59, 56, 56);
+//         width: 90%;
+//         height: 20%;
+//         background-color: #ffffff;
+//         border-radius: 1rem;
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         padding: 0rem 2rem;
+//     }
+    
+//     .carrito-negro{
+//         height: 5rem;
+//         width: 5rem;
+//         margin-left: 15rem;
+//     }
+//     .sin-notificacion{
+//         display: none;
+        
+        
+//     }
+//     .con-notificacion{
+//         display: inline;
+//         margin-bottom: 4.2rem;
+//         margin-left: 19rem;
+//         position: absolute;
+//         height: 1rem;
+//         width: 1rem;
+//         background-color: red;
+//         border-radius: 1rem;
+//         transition: all 0.9s;
+//     }
+    
+
+//     .productos-carrito{
+//         border-bottom: 1px solid rgb(59, 56, 56);
+//         width: 90%;
+//         height: 24%;
+//         background-color: #ffffff;
+//         border-radius: 1rem;
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         padding: 0rem 2rem;
+//         margin-top: 0.5rem;
+//         .icono{
+//             height: 5rem;
+//         }
+
+//         p{
+//             font-size: 1.7rem;
+//         }
+//         .info{
+//             padding-right: 18rem;
+//             padding-left: 1rem;
+//         }
+//     }
+// }
+
+
+
+
+
+.contenedor{
+    display: flex;
+    gap: 5rem;
+    width: 60%;
+    justify-content: space-evenly;
+    flex-wrap:wrap;
+    padding: 5rem 0rem;
+}
+
+.tarjetas{
+    box-shadow: 2px 1px 12px  rgb(233, 220, 200);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-self: center;
+    align-items: center;
+    height: 37rem;
+    width: 25rem;
+    background-color: aliceblue;
+    p{
+        font-size: 2.5rem;
+    }
+
+    h2{
+        font-size: 2rem;
+    }
+
+    .boton{
+        width: 6rem;
+        height: auto;
+        padding: 1rem;
+        filter: invert(0%) sepia(90%) saturate(1%) hue-rotate(63deg) brightness(104%) contrast(98%);
+        cursor: pointer;
+        transition: all 0.9s;
+       
+    }
+
+    .boton:hover{
+        transform: scale(1.05);
+        filter: drop-shadow(0.1rem 0.1rem 0.1rem black);
+    }
+  
+    
+}
+.perfume{
+    height: 25rem;
+    width: 20rem;
+    .muestra{
+        height: 22rem;
+        width: 20rem;
+    }
+   
+}
+
+
+
+
+
