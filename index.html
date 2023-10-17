@@ -11,7 +11,7 @@
     <header class="encabezado"> 
         <h1>Perfumeria</h1>
     </header>
-    <main>
+    <!-- <main>
         <div class="todo">
             <section class="contenedor" id="tabla">
              
@@ -27,16 +27,32 @@
                 <div class="cerrar-contenedor">
                     <img src="./assets/imagenes/cerrar.png" alt="" class="cerrar-modal" id="cerrar-modal">
                 </div>
-                <div class="contenido-modal">
-                    <div class="tarjeta-modal">
-                        <img src="./assets/imagenes/bleu de chanel.jpg" alt="">
-                        <div class="info">
-                            <p class="nombre">Bleu de chanel</p>
-                            <p class="precio">$95000</p>
-                        </div>
-                    </div>
-                    <div class="contenido-modal-eliminar">
-                        <img src="./assets/imagenes/borrar.png" alt="" class="eliminar-tarjeta">
+                <div class="contenido-modal" id="contenido-modal">
+                    <div>
+                        <table class="tabla table table-hover">
+                            <thead>
+                                <tr >
+                                    <th>Nombre</th>
+                                    <th>Marca</th>
+                                    <th>Precio unitario</th>
+                                    <th>Cantidad</th>
+                                    <th>subtotal</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="item">
+                            
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>total:</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th id="total">$</th>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
                
@@ -45,10 +61,12 @@
     </main>
     <footer>
 
-    </footer>
+    </footer> -->
 </body>
-<script src="./scripts/productos.js"></script>
-<script src="./scripts/mis-productos.js"></script>
+<!-- <script src="./scripts/productos.js"></script>
+<script src="./scripts/mis-productos.json"></script>
 <script src="./scripts/lista-de-productos.js"></script>
-<script src="./scripts/comprar.js"></script>
+<script src="./scripts/comprar.js"></script> -->
+<script src="./scripts/productos.json"></script>
+<script src="./scripts/lista.js"></script>
 </html>

@@ -22,109 +22,6 @@ html {
   color: rgb(0, 0, 0);
 }
 
-main {
-  height: 100%;
-  background-color: rgb(0, 0, 0);
-}
-
-.todo {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-around;
-}
-
-.header-carrito, .header-carrito-con-notificacion {
-  transition: all 0.8s;
-  margin-top: 5rem;
-  width: 8%;
-  height: 8rem;
-  background-color: rgb(255, 255, 255);
-  border-radius: 10rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.header-carrito .carrito-negro, .header-carrito-con-notificacion .carrito-negro {
-  height: 5rem;
-  width: 5rem;
-  padding-right: 0.5rem;
-}
-.header-carrito .sin-notificacion, .header-carrito-con-notificacion .sin-notificacion {
-  display: none;
-}
-.header-carrito .con-notificacion, .header-carrito-con-notificacion .con-notificacion {
-  display: inline;
-  margin-bottom: 4.2rem;
-  margin-left: 3rem;
-  position: absolute;
-  height: 1rem;
-  width: 1rem;
-  background-color: red;
-  border-radius: 1rem;
-  transition: all 0.9s;
-}
-
-.header-carrito-con-notificacion {
-  cursor: pointer;
-  transition: all 0.8s;
-}
-
-.header-carrito-con-notificacion:hover {
-  transform: scale(1.04);
-}
-
-.contenedor {
-  display: flex;
-  gap: 5rem;
-  width: 60%;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  padding: 5rem 0rem;
-}
-
-.tarjetas {
-  box-shadow: 2px 1px 12px rgb(233, 220, 200);
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-self: center;
-  align-items: center;
-  height: 37rem;
-  width: 25rem;
-  background-color: aliceblue;
-}
-.tarjetas p {
-  font-size: 2.5rem;
-}
-.tarjetas h2 {
-  font-size: 2rem;
-}
-.tarjetas .boton {
-  width: 6rem;
-  height: auto;
-  padding: 1rem;
-  filter: invert(0%) sepia(90%) saturate(1%) hue-rotate(63deg) brightness(104%) contrast(98%);
-  cursor: pointer;
-  transition: all 0.9s;
-}
-.tarjetas .boton:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0.1rem 0.1rem 0.1rem black);
-}
-
-.perfume {
-  max-width: 100%;
-  max-height: 100%;
-  overflow: hidden;
-  object-fit: contain;
-}
-.perfume .muestra {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
 .modal {
   transition: all 0.5s;
   position: fixed;
@@ -142,7 +39,7 @@ main {
 
 .modal-container {
   width: 90%;
-  height: 100%;
+  height: 90%;
   border-radius: 10rem;
   background-color: white;
   display: flex;
@@ -180,39 +77,17 @@ main {
 }
 
 .contenido-modal {
-  width: 90%;
-  height: 14rem;
-  position: relative;
-  background-color: aquamarine;
-  box-shadow: 2px 1px 12px rgb(87, 86, 86);
-  margin-bottom: 0.5rem;
+  width: 80%;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
-.contenido-modal .tarjeta-modal {
-  width: 90%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
+.contenido-modal div {
+  width: 100%;
+  font-size: 4rem;
 }
-.contenido-modal .tarjeta-modal img {
-  height: 100%;
-}
-.contenido-modal .tarjeta-modal .info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 70%;
-}
-.contenido-modal .tarjeta-modal .info p {
-  font-size: 3.5rem;
-}
-.contenido-modal .contenido-modal-eliminar {
-  width: 10%;
-}
-.contenido-modal .contenido-modal-eliminar img {
-  height: 4rem;
-  cursor: pointer;
+.contenido-modal div table {
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
