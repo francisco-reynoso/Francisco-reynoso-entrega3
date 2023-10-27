@@ -41,8 +41,8 @@ document.addEventListener("DOMContentLoaded", () =>{
         e.preventDefault();
         const productoSeleccionado=productos.find((item,index) => 
             index === +selectProductos.value
-        );
-       
+    );
+        
         if ( productoSeleccionado ===undefined){ 
             alert("debe seleccionar un producto");
             return;
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () =>{
             carrito.push(item)
 
         }
-        
+            
         localStorage.setItem(`carrito`,JSON.stringify(carrito));
         dibujarTabla()
     });
@@ -76,7 +76,6 @@ function dibujarTabla() {
             <td>${cantidad || ""}</td>
             <td>$${precio*cantidad || ""}</td>
             <td><button class ="btn btn-danger">eliminar</button></td>
-            
         </tr>
         `;
         if(carrito.length != 0 ) {
@@ -92,7 +91,7 @@ function dibujarTabla() {
         const eliminar = document.querySelectorAll(`.btn.btn-danger`);
         eliminar.forEach((eliminarBoton,index) =>{
             eliminarBoton.addEventListener("click",()=>{
-                    Swal.fire({
+                Swal.fire({
                     title: '¿esta seguro que quiere eliminar este producto?',
                     icon: 'question',
                     showCancelButton: true,
@@ -101,13 +100,13 @@ function dibujarTabla() {
                     confirmButtonText: 'si, estoy seguro',
                     cancelButtonText:`no, gracias`
                     }).then((result) => {
-                    if (result.isConfirmed) {
-                        carrito.splice(index,1);
-                        dibujarTabla();
-                        localStorage.setItem("carrito",JSON.stringify(carrito));
+                        if (result.isConfirmed) {
+                            carrito.splice(index,1);
+                            dibujarTabla();
+                            localStorage.setItem("carrito",JSON.stringify(carrito));
                         if (carrito.length == 0) {
                             conteBtn.innerHTML=`
-                            <button id="vaciar" class="btn btn-primary">Vaciar</button>
+                                <button id="vaciar" class="btn btn-primary">Vaciar</button>
                             `;
                         }
                         Swal.fire(
@@ -115,49 +114,89 @@ function dibujarTabla() {
                             '',
                             'warning'
                         )
+                        }
+                    })
+                });
+            });
+            const vaciar= document.querySelector("#vaciar");
+            
+            vaciar.addEventListener("click",()=>{
+                Swal.fire({
+                    title: '¿esta seguro que quiere vaciar el carrito?',
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'si, estoy seguro',
+                    cancelButtonText:`no, gracias`
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        conteBtn.innerHTML=`
+                            <button id="vaciar" class="btn btn-primary">Vaciar</button>
+                        `;
+                        carrito= [];
+                        dibujarTabla();
+                        localStorage.setItem("carrito",JSON.stringify(carrito));
+                        Swal.fire(
+                            'Ya tiene su carrito vacio',
+                            '',
+                            'warning'
+                        )
                     }
                 })
+                
+                
             });
-        });
-        const vaciar= document.querySelector("#vaciar");
-        
-        vaciar.addEventListener("click",()=>{
-            
-            Swal.fire({
-                title: '¿esta seguro que quiere vaciar el carrito?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'si, estoy seguro',
-                cancelButtonText:`no, gracias`
-              }).then((result) => {
-                if (result.isConfirmed) {
-                    conteBtn.innerHTML=`
-                        <button id="vaciar" class="btn btn-primary">Vaciar</button>
-                    `;
-                    carrito= [];
-                    dibujarTabla();
-                    localStorage.setItem("carrito",JSON.stringify(carrito));
-                    Swal.fire(
-                        'Ya tiene su carrito vacio',
-                        '',
-                        'warning'
-                    )
-                }
+            const comprar = document.querySelector("#comprar");
+            comprar.addEventListener("click",() =>{
+                funcionComprar();
             })
             
         });
-        const comprar = document.querySelector("#comprar");
-        comprar.addEventListener("click",() =>{
-            funcionComprar();
-        })
+        total.textContent=(`$${carrito.reduce((accu,item)=> accu+ item.producto.precio*item.cantidad,0)}`);
         
-    });
-    total.textContent=(`$${carrito.reduce((accu,item)=> accu+ item.producto.precio*item.cantidad,0)}`);
-    
-}
+    }
 
-function funcionComprar() {
-    console.log("comprando");
-}
+    function funcionComprar() {
+        Swal.fire({
+            title: 'Comprando',
+            html: `<input type="text" id="nombre" class="swal2-input" placeholder="Nombre">
+                <input type="email" id="email" class="swal2-input" placeholder="Email">
+                <input type="text" id="numTarjeta" class="swal2-input" placeholder="Numero de tarjeta">
+                <input type="text" id="vencimiento" class="swal2-input" placeholder="Vencimiento de la tarjeta">
+                <input type="text" id="numSeguridad" class="swal2-input" placeholder="Clave de seguridad">
+            `,
+            confirmButtonText: 'Pagar',
+            focusConfirm: false,
+            preConfirm: () => {
+                const nombre = Swal.getPopup().querySelector('#nombre').value
+                const email = Swal.getPopup().querySelector('#email').value
+                const numTarjeta = swal.getPopup().querySelector("#numTarjeta").value
+                const vencimiento = swal.getPopup().querySelector("#vencimiento").value
+                const numSeguridad = swal.getPopup().querySelector("#numSeguridad").value
+                if (!nombre || !email || !numTarjeta || !vencimiento || !numSeguridad) {
+                    Swal.showValidationMessage(`Complete todos los campos`);
+                }
+                return {
+                    nommbre: nombre,
+                    email: email,
+                    numTarjeta: numTarjeta,
+                    numSeguridad: numSeguridad,
+                    vencimiento: vencimiento
+                }
+            }
+        }).then(() => {
+            conteBtn.innerHTML=`
+                <button id="vaciar" class="btn btn-primary">Vaciar</button>
+            `;
+            carrito= [];
+            dibujarTabla();
+            localStorage.setItem("carrito",JSON.stringify(carrito));
+            Swal.fire(
+                'Gracias por su compra',
+                '',
+                'success'
+            ).trim()
+        })
+
+    }
